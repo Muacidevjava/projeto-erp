@@ -21,7 +21,7 @@ class CategoriaRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id= $this->segment(2);
+        $id = $this->segment(2) ?? 'NULL'; // Trata caso o segmento não exista
         return [
             "categoria" => "required|unique:categorias,categoria,{$id},id"
         ];

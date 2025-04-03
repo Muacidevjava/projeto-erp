@@ -34,7 +34,7 @@ class CategoriaController extends Controller
     {
         $req = $request->except(["_token"]);
         try {
-            Categoria::create($req);
+            Categoria::Create($req);
             return redirect()->route("categoria.index")->with("msg_sucesso", "Registro Inserido com Sucesso");
         } catch (\Throwable $th) {
             return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
@@ -79,6 +79,14 @@ class CategoriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+   
+        try {
+            $categoria = Categoria::find($id);
+            $categoria->delete();
+            return redirect()->route("categoria.index")->with("msg_sucesso", "Registro Excluído com Sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
+
     }
 }
