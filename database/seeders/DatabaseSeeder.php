@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             StatusSeeder::class,
             CategoriaSeeder::class,
             UnidadeSeeder::class,
-            BancoSeeder::class
+            BancoSeeder::class,
+            TipoContaCorrenteSeeder::class
         ]);
     }
 }
