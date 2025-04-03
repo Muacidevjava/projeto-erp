@@ -1,0 +1,305 @@
+
+    <div class="central mb-3">
+        <span class=" bg-title text-light text-uppercase h5 mb-0 text-branco">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="icon cadastro">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+        </span>
+
+
+        <div id="tab" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+
+            <div id="tab-1">
+                <div class="p-2 mt-3 px-0">
+                    <div class="col-12 text-right pb-0 pt-2 mb-3">
+                        <a href="{{ route('tributacao.create') }}" class=" btn btn-roxo d-inline-block"> + Inserir
+                            Tributação </a>
+                    </div>
+                    <fieldset class="tranparent">
+                        <legend>Tributação</legend>
+                        <div class="rows">
+                            <div class="col-12">
+                                <div class="tabela-responsiva pb-4 prod mt-0" style="">
+                                    <table cellpadding="0" cellspacing="0" id="" width="100%" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th align="center">#</th>
+                                                <th align="center">Descrição</th>
+                                                <th align="center">Cfop</th>
+                                                <th align="center">CST ICMS</th>
+                                                <th align="center">CST IPI</th>
+                                                <th align="center">CST PIS</th>
+                                                <th align="center">CST COFINS</th>
+                                                <th align="center">Padrão</th>
+                                                <th align="center">Opções</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="datatable-body">
+                                            @foreach ($lista as $l)
+                                                <tr>
+                                                    <td align="center">{{ $l->id }}</td>
+                                                    <td align="center">{{ $l->descricao }}</td>
+                                                    <td align="center">{{ $l->cfop }}</td>
+                                                    <td align="center">{{ $l->cstICMS }}</td>
+                                                    <td align="center">{{ $l->cstIPI }}</td>
+                                                    <td align="center">{{ $l->cstPIS }}</td>
+                                                    <td align="center">{{ $l->cstCOFINS }}</td>
+                                                    @if ($l->padrao == 'S')
+                                                        <td align="center">Sim</td>
+                                                    @else
+                                                        <td align="center"><a href="javascript:;"
+                                                                onclick="tornarPadrao({{ $l->id }})"
+                                                                title="Tornar Padrão"
+                                                                class="btn btn-azul btn-pequeno d-inline-block">Não</a>
+                                                        </td>
+                                                    @endif
+
+                                                    <td align="center" width="400">
+                                                        @if ($l->padrao == 'N')
+                                                            <a href="javascript:;"
+                                                                onclick="abrirTelaProduto({{ $l->id }})"
+                                                                class="btn btn-azul btn-pequeno d-inline-block">Produtos</a>
+                                                        @else
+                                                            <a href="#"
+                                                                class="btn btn-cinza btn-pequeno d-inline-block">Produtos</a>
+                                                        @endif
+
+                                                        <a href="javascript:;" onclick="abrirTelaIva({{ $l->id }})"
+                                                            class="btn btn-azul btn-pequeno d-inline-block">IVA</a>
+                                                        <a href="javascript:;" onclick="excluirTributacao(1,'S')"
+                                                            class="btn btn-vermelho btn-pequeno d-inline-block">Excluir</a>
+                                                        <a href="{{ route('tributacao.edit', $l->id) }}"
+                                                            class="btn btn-verde btn-pequeno d-inline-block">Editar</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </fieldset>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="window medio" id="telaProduto">
+
+        <div class="p-2 px-4">
+            <span class="d-block h3 border-bottom fw-700">Produtos da Tributação</span>
+            <div class="rows">
+                <div class="col-10 position-relative mb-3">
+                    <label class="text-label">Produto</label>
+                    <input type="text" name="nomeProduto" id="nomeProduto" class="form-campo">
+                </div>
+
+
+                <div class="col-2 mb-3">
+                    <label class="text-label">.</label>
+                    <input type="hidden" name="produto_id" id="produto_id">
+                    <input type="hidden" id="natureza_operacao_id">
+                    <input type="hidden" name="tributacao_id" id="tributacao_id">
+                    <input type="button" value="Inserir" id="btnInserirProdutoTributacao"
+                        class="btn btn-azul border-bottom width-100">
+                </div>
+
+            </div>
+
+            <div class="rows">
+                <div class="col-12">
+                    <div class="scroll tabela-responsiva pb-4 prod table border-top mt-0 border-left border-bottom border-right"
+                        style="background: #f3f3f3;">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th align="center">#</th>
+                                    <th class="text-left">Produto</th>
+                                    <th align="center">Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody class="datatable-body" id="lista_produto_tributacao">
+                                <tr>
+                                    <td align="center"></td>
+                                    <td align="center"></td>
+                                    <td align="center">
+                                        <a href="" title="Excluir" class="text-vermelho"><i
+                                                class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tfooter end">
+            <a href="" class="btn btn-neutro fechar">Fechar</a>
+        </div>
+    </div>
+
+
+    <div class="window form alt" id="telaIva">
+
+        <div class="p-2 px-4">
+            <span class="d-block h3 border-bottom fw-700">Cadastro IVA-ST por Estado</span>
+            <div class="p-0">
+                <form id="frmCadIva" method="post">
+                    <div class="rows">
+                        <div class="col-2 mb-3">
+                            <label class="text-label">Estado Origem</label>
+                            <select class="form-campo" name="uf_origem" id="uf_origem">
+
+
+                            </select>
+                        </div>
+
+                        <div class="col-2 mb-3">
+                            <label class="text-label">Estado Destino</label>
+                            <select class="form-campo" name="uf_destino" id="uf_destino">
+                                <option value="TD">TD - Todos Estados </option>
+
+
+                            </select>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label class="text-label">Modalidade BC ICMSST</label>
+                            <select class="form-campo" name="modBCST" id="modBCST">
+                                <option value="0">0 - Preço Tabelado ou Máximo Sugerido</option>
+                                <option value="1">1 - Lista Negativa (valor)</option>
+                                <option value="2">2 - Lista Positiva (valor)</option>
+                                <option value="3">3 - Lista Neutra (Valor)</option>
+                                <option value="4">4 - Margem Valor Agregado</option>
+                                <option value="5">5 - Pauta (valor)</option>
+                            </select>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label class="text-label">CST Icms</label>
+                            <select class="form-campo" name="cstIcms" id="cstIcms">
+                                <option value="">Selecione um valor</option>
+
+
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-2 mb-3">
+                            <label class="text-label">MVAST (%)</label>
+                            <input type="text" name="pMVAST" id="pMVAST" value=""
+                                class="form-campo  mascara-float">
+                        </div>
+
+                        <div class="col-2 mb-3">
+                            <label class="text-label">RedBC ICMSST (%)</label>
+                            <input type="text" name="pRedBCST" id="pRedBCST" value=""
+                                class="form-campo mascara-float ">
+                        </div>
+
+
+                        <div class="col-3 mb-3">
+                            <label class="text-label">Aliq Interestadual (pICMS) (%) </label>
+                            <input type="text" name="pIcmsInterestadual" id="pIcmsInterestadual" value=""
+                                class="form-campo mascara-float">
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <label class="text-label">Aliq. Interna (pICMSST) (%) </label>
+                            <input type="text" name="pIcmsIntra" id="pIcmsIntra" value=""
+                                class="form-campo mascara-float">
+                        </div>
+
+                        <div class="col-2 mb-3">
+                            <label class="text-label">Aliq. interna Difal </label>
+                            <input type="text" name="pDifal" id="pDifal" value=""
+                                class="form-campo mascara-float">
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <label class="text-label">Aliq. FCP ST Ret.(%)</label>
+                            <input type="text" name="pFCPSTRet" id="pFCPSTRet" value=""
+                                class="form-campo mascara-float">
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <label class="text-label">Aliq. FC PST </label>
+                            <input type="text" name="pFCPST" id="pFCPST" value=""
+                                class="form-campo mascara-float">
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <label class="text-label">Valor Unit. Pauta </label>
+                            <input type="text" name="preco_unit_Pauta_ST" id="preco_unit_Pauta_ST" value=""
+                                class="form-campo mascara-float">
+                        </div>
+
+                        <div class="col-2 mb-3">
+                            <label class="text-label">.</label>
+                            <input type="hidden" name="natureza_operacao_id" class="natureza_operacao_id">
+                            <input type="hidden" name="tributacao_id" class="tributacao_id">
+                            <input type="button" value="Ins" id="btnInserirIvaTributacao"
+                                class="btn btn-azul border-bottom width-100">
+                        </div>
+
+                    </div>
+                </form>
+                <div class="rows mt-4">
+                    <div class="col-12 scroll-modal">
+                        <div class=" tabela-responsiva pb-4 prod table border-top mt-0 border-left border-bottom border-right"
+                            style="background: #140a2a;">
+                            <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                                <thead>
+                                    <tr>
+                                        <th align="center">#</th>
+                                        <th class="text-left">UF Origem</th>
+                                        <th class="text-left">UF Dest.</th>
+                                        <th class="text-left">CST</th>
+                                        <th class="text-left">Aliq. Intra</th>
+                                        <th class="text-left">Alíq. Inter</th>
+                                        <th class="text-left">pMVAST</th>
+                                        <th class="text-left">pRedBCST</th>
+                                        <th class="text-left">pFCPST</th>
+                                        <th class="text-left">modBCST</th>
+                                        <th class="text-left">Alíq. Difal</th>
+                                        <th align="center">Opções</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="datatable-body" id="lista_iva_tributacao">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tfooter end">
+            <a href="" class="btn btn-neutro fechar">Fechar</a>
+        </div>
+    </div>
+
+    <div id="fundo_preto"></div>
+

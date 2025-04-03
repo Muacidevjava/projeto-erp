@@ -1,0 +1,1233 @@
+
+            <div class="rows">
+        <div class="col-12">
+            <span class=" bg-title text-light text-uppercase h5 mb-0 text-branco">
+                <svg class="icon cadastro" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11.5 14.875H14.875M14.875 14.875H18.25M14.875 14.875V11.5M14.875 14.875V18.25M4 8.5H6.25C6.84674 8.5 7.41903 8.26295 7.84099 7.84099C8.26295 7.41903 8.5 6.84674 8.5 6.25V4C8.5 3.40326 8.26295 2.83097 7.84099 2.40901C7.41903 1.98705 6.84674 1.75 6.25 1.75H4C3.40326 1.75 2.83097 1.98705 2.40901 2.40901C1.98705 2.83097 1.75 3.40326 1.75 4V6.25C1.75 6.84674 1.98705 7.41903 2.40901 7.84099C2.83097 8.26295 3.40326 8.5 4 8.5ZM4 18.25H6.25C6.84674 18.25 7.41903 18.0129 7.84099 17.591C8.26295 17.169 8.5 16.5967 8.5 16V13.75C8.5 13.1533 8.26295 12.581 7.84099 12.159C7.41903 11.7371 6.84674 11.5 6.25 11.5H4C3.40326 11.5 2.83097 11.7371 2.40901 12.159C1.98705 12.581 1.75 13.1533 1.75 13.75V16C1.75 16.5967 1.98705 17.169 2.40901 17.591C2.83097 18.0129 3.40326 18.25 4 18.25ZM13.75 8.5H16C16.5967 8.5 17.169 8.26295 17.591 7.84099C18.0129 7.41903 18.25 6.84674 18.25 6.25V4C18.25 3.40326 18.0129 2.83097 17.591 2.40901C17.169 1.98705 16.5967 1.75 16 1.75H13.75C13.1533 1.75 12.581 1.98705 12.159 2.40901C11.7371 2.83097 11.5 3.40326 11.5 4V6.25C11.5 6.84674 11.7371 7.41903 12.159 7.84099C12.581 8.26295 13.1533 8.5 13.75 8.5Z"
+                        stroke="#341008" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Lista de unidades
+            </span>
+
+            <div class="caixa">
+
+                <div class="px-2 py-2 w-100 d-grid">
+                                                <form action="unidade" method="POST">
+                                        <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                    <div class="caixafield  p-2 radius-4 border">
+                        <div class="   p-2 pt-0 radius-4">
+                            <div class="rows center-middle">
+                                <div class="col-6">
+                                    <label class="text-label d-block text-branco">Nome </label>
+                                    <input type="text" name="unidade" value=""
+                                        class="form-campo">
+                                </div>
+                                <div class="col-3">
+                                    <label class="text-label d-block text-branco">Abrev </label>
+                                    <input type="text" name="abrev" value=""
+                                        class="form-campo">
+                                </div>
+                                <div class="col-3 mt-0 pt-4">
+                                    <input type="submit" value="Salvar" class="w-100 btn btn-roxo text-uppercase">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="px-2">
+                <div class="tabela-responsiva pb-4">
+                    <table cellpadding="0" cellspacing="0" id="dataTable" width="100%" class="table unidade">
+                        <thead>
+                            <tr>
+                                <th align="center">Id</th>
+                                <th align="left" width="50%">Nome</th>
+                                <th align="left">Abrev</th>
+                                <th align="center">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td align="center">1</td>
+                                    <td align="left">UNID</td>
+                                    <td align="left">UNID</td>
+                                    <td align="center">
+                                        <a href="unidade/1/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar1').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/1" method="POST"
+                                                id="apagar1" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">2</td>
+                                    <td align="left">AMPOLA</td>
+                                    <td align="left">AMPOLA</td>
+                                    <td align="center">
+                                        <a href="unidade/2/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar2').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/2" method="POST"
+                                                id="apagar2" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">3</td>
+                                    <td align="left">BALDE</td>
+                                    <td align="left">BALDE</td>
+                                    <td align="center">
+                                        <a href="unidade/3/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar3').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/3" method="POST"
+                                                id="apagar3" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">4</td>
+                                    <td align="left">BANDEJ</td>
+                                    <td align="left">BANDEJ</td>
+                                    <td align="center">
+                                        <a href="unidade/4/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar4').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/4" method="POST"
+                                                id="apagar4" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">5</td>
+                                    <td align="left">BARRA</td>
+                                    <td align="left">BARRA</td>
+                                    <td align="center">
+                                        <a href="unidade/5/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar5').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/5" method="POST"
+                                                id="apagar5" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">6</td>
+                                    <td align="left">BISNAG</td>
+                                    <td align="left">BISNAG</td>
+                                    <td align="center">
+                                        <a href="unidade/6/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar6').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/6" method="POST"
+                                                id="apagar6" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">7</td>
+                                    <td align="left">BLOCO</td>
+                                    <td align="left">BLOCO</td>
+                                    <td align="center">
+                                        <a href="unidade/7/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar7').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/7" method="POST"
+                                                id="apagar7" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">8</td>
+                                    <td align="left">BOBINA</td>
+                                    <td align="left">BOBINA</td>
+                                    <td align="center">
+                                        <a href="unidade/8/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar8').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/8" method="POST"
+                                                id="apagar8" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">9</td>
+                                    <td align="left">BOMB</td>
+                                    <td align="left">BOMB</td>
+                                    <td align="center">
+                                        <a href="unidade/9/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar9').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/9" method="POST"
+                                                id="apagar9" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">10</td>
+                                    <td align="left">CAPS</td>
+                                    <td align="left">CAPS</td>
+                                    <td align="center">
+                                        <a href="unidade/10/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar10').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/10" method="POST"
+                                                id="apagar10" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">11</td>
+                                    <td align="left">CART</td>
+                                    <td align="left">CART</td>
+                                    <td align="center">
+                                        <a href="unidade/11/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar11').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/11" method="POST"
+                                                id="apagar11" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">12</td>
+                                    <td align="left">CENTO</td>
+                                    <td align="left">CENTO</td>
+                                    <td align="center">
+                                        <a href="unidade/12/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar12').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/12" method="POST"
+                                                id="apagar12" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">13</td>
+                                    <td align="left">CJ</td>
+                                    <td align="left">CJ</td>
+                                    <td align="center">
+                                        <a href="unidade/13/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar13').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/13" method="POST"
+                                                id="apagar13" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">14</td>
+                                    <td align="left">CM</td>
+                                    <td align="left">CM</td>
+                                    <td align="center">
+                                        <a href="unidade/14/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar14').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/14" method="POST"
+                                                id="apagar14" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">15</td>
+                                    <td align="left">CM2</td>
+                                    <td align="left">CM2</td>
+                                    <td align="center">
+                                        <a href="unidade/15/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar15').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/15" method="POST"
+                                                id="apagar15" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">16</td>
+                                    <td align="left">CX</td>
+                                    <td align="left">CX</td>
+                                    <td align="center">
+                                        <a href="unidade/16/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar16').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/16" method="POST"
+                                                id="apagar16" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">17</td>
+                                    <td align="left">CX2</td>
+                                    <td align="left">CX2</td>
+                                    <td align="center">
+                                        <a href="unidade/17/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar17').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/17" method="POST"
+                                                id="apagar17" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">18</td>
+                                    <td align="left">CX3</td>
+                                    <td align="left">CX3</td>
+                                    <td align="center">
+                                        <a href="unidade/18/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar18').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/18" method="POST"
+                                                id="apagar18" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">19</td>
+                                    <td align="left">CX5</td>
+                                    <td align="left">CX5</td>
+                                    <td align="center">
+                                        <a href="unidade/19/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar19').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/19" method="POST"
+                                                id="apagar19" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">20</td>
+                                    <td align="left">CX10</td>
+                                    <td align="left">CX10</td>
+                                    <td align="center">
+                                        <a href="unidade/20/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar20').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/20" method="POST"
+                                                id="apagar20" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">21</td>
+                                    <td align="left">CX15</td>
+                                    <td align="left">CX15</td>
+                                    <td align="center">
+                                        <a href="unidade/21/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar21').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/21" method="POST"
+                                                id="apagar21" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">22</td>
+                                    <td align="left">CX20</td>
+                                    <td align="left">CX20</td>
+                                    <td align="center">
+                                        <a href="unidade/22/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar22').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/22" method="POST"
+                                                id="apagar22" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">23</td>
+                                    <td align="left">CX25</td>
+                                    <td align="left">CX25</td>
+                                    <td align="center">
+                                        <a href="unidade/23/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar23').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/23" method="POST"
+                                                id="apagar23" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">24</td>
+                                    <td align="left">CX50</td>
+                                    <td align="left">CX50</td>
+                                    <td align="center">
+                                        <a href="unidade/24/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar24').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/24" method="POST"
+                                                id="apagar24" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">25</td>
+                                    <td align="left">CX100</td>
+                                    <td align="left">CX100</td>
+                                    <td align="center">
+                                        <a href="unidade/25/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar25').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/25" method="POST"
+                                                id="apagar25" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">26</td>
+                                    <td align="left">DISP</td>
+                                    <td align="left">DISP</td>
+                                    <td align="center">
+                                        <a href="unidade/26/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar26').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/26" method="POST"
+                                                id="apagar26" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">27</td>
+                                    <td align="left">DUZIA</td>
+                                    <td align="left">DUZIA</td>
+                                    <td align="center">
+                                        <a href="unidade/27/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar27').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/27" method="POST"
+                                                id="apagar27" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">28</td>
+                                    <td align="left">EMBAL</td>
+                                    <td align="left">EMBAL</td>
+                                    <td align="center">
+                                        <a href="unidade/28/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar28').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/28" method="POST"
+                                                id="apagar28" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">29</td>
+                                    <td align="left">FARDO</td>
+                                    <td align="left">FARDO</td>
+                                    <td align="center">
+                                        <a href="unidade/29/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar29').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/29" method="POST"
+                                                id="apagar29" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">30</td>
+                                    <td align="left">FOLHA</td>
+                                    <td align="left">FOLHA</td>
+                                    <td align="center">
+                                        <a href="unidade/30/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar30').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/30" method="POST"
+                                                id="apagar30" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">31</td>
+                                    <td align="left">FRASCO</td>
+                                    <td align="left">FRASCO</td>
+                                    <td align="center">
+                                        <a href="unidade/31/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar31').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/31" method="POST"
+                                                id="apagar31" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">32</td>
+                                    <td align="left">GALAO</td>
+                                    <td align="left">GALAO</td>
+                                    <td align="center">
+                                        <a href="unidade/32/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar32').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/32" method="POST"
+                                                id="apagar32" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">33</td>
+                                    <td align="left">GF</td>
+                                    <td align="left">GF</td>
+                                    <td align="center">
+                                        <a href="unidade/33/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar33').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/33" method="POST"
+                                                id="apagar33" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">34</td>
+                                    <td align="left">GRAMAS</td>
+                                    <td align="left">GRAMAS</td>
+                                    <td align="center">
+                                        <a href="unidade/34/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar34').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/34" method="POST"
+                                                id="apagar34" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">35</td>
+                                    <td align="left">JOGO</td>
+                                    <td align="left">JOGO</td>
+                                    <td align="center">
+                                        <a href="unidade/35/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar35').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/35" method="POST"
+                                                id="apagar35" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">36</td>
+                                    <td align="left">KG</td>
+                                    <td align="left">KG</td>
+                                    <td align="center">
+                                        <a href="unidade/36/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar36').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/36" method="POST"
+                                                id="apagar36" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">37</td>
+                                    <td align="left">KIT</td>
+                                    <td align="left">KIT</td>
+                                    <td align="center">
+                                        <a href="unidade/37/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar37').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/37" method="POST"
+                                                id="apagar37" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">38</td>
+                                    <td align="left">LATA</td>
+                                    <td align="left">LATA</td>
+                                    <td align="center">
+                                        <a href="unidade/38/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar38').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/38" method="POST"
+                                                id="apagar38" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">39</td>
+                                    <td align="left">LITRO</td>
+                                    <td align="left">LITRO</td>
+                                    <td align="center">
+                                        <a href="unidade/39/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar39').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/39" method="POST"
+                                                id="apagar39" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">40</td>
+                                    <td align="left">M</td>
+                                    <td align="left">M</td>
+                                    <td align="center">
+                                        <a href="unidade/40/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar40').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/40" method="POST"
+                                                id="apagar40" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">41</td>
+                                    <td align="left">M2</td>
+                                    <td align="left">M2</td>
+                                    <td align="center">
+                                        <a href="unidade/41/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar41').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/41" method="POST"
+                                                id="apagar41" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">42</td>
+                                    <td align="left">M3</td>
+                                    <td align="left">M3</td>
+                                    <td align="center">
+                                        <a href="unidade/42/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar42').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/42" method="POST"
+                                                id="apagar42" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">43</td>
+                                    <td align="left">MILHEI</td>
+                                    <td align="left">MILHEI</td>
+                                    <td align="center">
+                                        <a href="unidade/43/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar43').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/43" method="POST"
+                                                id="apagar43" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">44</td>
+                                    <td align="left">ML</td>
+                                    <td align="left">ML</td>
+                                    <td align="center">
+                                        <a href="unidade/44/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar44').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/44" method="POST"
+                                                id="apagar44" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">45</td>
+                                    <td align="left">MWH</td>
+                                    <td align="left">MWH</td>
+                                    <td align="center">
+                                        <a href="unidade/45/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar45').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/45" method="POST"
+                                                id="apagar45" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">46</td>
+                                    <td align="left">PACOTE</td>
+                                    <td align="left">PACOTE</td>
+                                    <td align="center">
+                                        <a href="unidade/46/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar46').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/46" method="POST"
+                                                id="apagar46" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">47</td>
+                                    <td align="left">PALETE</td>
+                                    <td align="left">PALETE</td>
+                                    <td align="center">
+                                        <a href="unidade/47/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar47').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/47" method="POST"
+                                                id="apagar47" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">48</td>
+                                    <td align="left">PARES</td>
+                                    <td align="left">PARES</td>
+                                    <td align="center">
+                                        <a href="unidade/48/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar48').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/48" method="POST"
+                                                id="apagar48" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">49</td>
+                                    <td align="left">PC</td>
+                                    <td align="left">PC</td>
+                                    <td align="center">
+                                        <a href="unidade/49/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar49').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/49" method="POST"
+                                                id="apagar49" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">50</td>
+                                    <td align="left">POTE</td>
+                                    <td align="left">POTE</td>
+                                    <td align="center">
+                                        <a href="unidade/50/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar50').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/50" method="POST"
+                                                id="apagar50" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">51</td>
+                                    <td align="left">RESMA</td>
+                                    <td align="left">RESMA</td>
+                                    <td align="center">
+                                        <a href="unidade/51/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar51').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/51" method="POST"
+                                                id="apagar51" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">52</td>
+                                    <td align="left">ROLO</td>
+                                    <td align="left">ROLO</td>
+                                    <td align="center">
+                                        <a href="unidade/52/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar52').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/52" method="POST"
+                                                id="apagar52" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td align="center">53</td>
+                                    <td align="left">SACO</td>
+                                    <td align="left">SACO</td>
+                                    <td align="center">
+                                        <a href="unidade/53/edit"
+                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                class="fas fa-edit"></i>
+                                            Editar</a>
+
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar53').submit() : '';"
+                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                            <i class="fas fa-trash-alt"></i>
+                                            <form action="unidade/53" method="POST"
+                                                id="apagar53" class="">
+                                                <input type="hidden" name="_method" value="DELETE">                                                <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">                                            </form>
+
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+   
+ 
