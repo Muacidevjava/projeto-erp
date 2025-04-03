@@ -23,7 +23,7 @@
                             <form action="{{ route('categoria.store') }}" method="POST">
                     @endif
                         @csrf
-                        <div class="{{isset($categoria ->categoria)?'bg-edit' : 'caixafield'}}   p-2 pt-0 radius-4">
+                        <div class="{{isset($categoria ->categoria)?'bg-edit' : 'caixafield'}}  p-2 pt-0 radius-4">
                             <div class="rows center-middle">
                                 <div class="col-9">
                                     <label class="text-label d-block text-branco">Nome </label>
