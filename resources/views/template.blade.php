@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-    <script src="js/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script>
@@ -58,13 +58,13 @@
     <script src="{{ asset('assets/js/datatables/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/js/datatables/js/jquery.dataTables.min.js') }}"></script>
 
-    <script src="{{ asset('js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
 
-    <script src="{{ asset('componentes/js/js_data_table.js') }}"></script>
-    <script src="{{ asset('componentes/js/js_modal.js') }}"></script>
-    <script src="{{ asset('componentes/js/js_util.js') }}"></script>
-    <script src="{{ asset('componentes/js/js_mascara.js') }}"></script>
-    <script src="{{ asset('componentes/js/upload.js') }}"></script>
+    <script src="{{ asset('assets/componentes/js/js_data_table.js') }}"></script>
+    <script src="{{ asset('assets/componentes/js/js_modal.js') }}"></script>
+    <script src="{{ asset('assets/componentes/js/js_util.js') }}"></script>
+    <script src="{{ asset('assets/componentes/js/js_mascara.js') }}"></script>
+    <script src="{{ asset('assets/componentes/js/upload.js') }}"></script>
 
     <script>
         $(function() {
