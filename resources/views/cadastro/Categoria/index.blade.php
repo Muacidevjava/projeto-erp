@@ -23,19 +23,17 @@
                             <form action="{{ route('categoria.store') }}" method="POST">
                     @endif
                         @csrf
-
-                        <div class="{{ isset($categoria->categoria) ? 'bg-edit' : 'caixafield' }} p-2 pt-0 radius-4">
+                        <div class="{{isset($categoria ->categoria)?'bg-edit' : 'caixafield'}}   p-2 pt-0 radius-4">
                             <div class="rows center-middle">
                                 <div class="col-9">
                                     <label class="text-label d-block text-branco">Nome </label>
-                                    <input type="text" name="categoria" value="{{ old('categoria', $categoria->categoria ?? '') }}" class="form-campo">
+                                    <input type="text" name="categoria" value="{{$categoria->categoria ?? ''}}" class="form-campo">
                                 </div>
                                 <div class="col-3 mt-0 pt-4">
                                     <input type="submit" value="Salvar" class="w-100 btn btn-roxo text-uppercase">
                                 </div>
                             </div>
                         </div>
-                        
                     
                     </form>
                 </div>
@@ -66,7 +64,7 @@
                                         Editar</a>
 
                                     <a href="javascript:;"
-                                        onclick="confirm('Tem Certeza que deseja excluir ?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
+                                        onclick="confirm('Tem Certeza ?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
                                         class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
                                         <i class="fas fa-trash-alt"></i>
                                         <form action="{{ route('categoria.destroy', $l->id) }}" method="POST"

@@ -14,19 +14,32 @@
             <div class="caixa">
 
                 <div class="px-2 py-2 w-100 d-grid">
-                    <form action="unidade" method="POST">
-                        <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">
-                        <div class="caixafield  p-2 radius-4 border">
+
+                    @if(isset($unidade) && $unidade)
+                    <form action="{{ route('unidade.update', $unidade->id) }}" method="POST">
+                        @method('put')
+                @else
+                    <form action="{{ route('unidade.store') }}" method="POST">
+                @endif
+                    @csrf
+                
+                       
+                        <div class="{{ isset($unidade->unidade) ? 'bg-edit' : 'caixafield' }} p-2 radius-4 border">
                             <div class="   p-2 pt-0 radius-4">
                                 <div class="rows center-middle">
+                                    
+
                                     <div class="col-6">
                                         <label class="text-label d-block text-branco">Nome </label>
-                                        <input type="text" name="unidade" value="" class="form-campo">
+                                        <input type="text" name="unidade" value="{{ $unidade->unidade ?? old('unidade') }}"
+                                            class="form-campo">
                                     </div>
                                     <div class="col-3">
                                         <label class="text-label d-block text-branco">Abrev </label>
-                                        <input type="text" name="abrev" value="" class="form-campo">
+                                        <input type="text" name="abrev" value="{{ $unidade->abrev ?? old('abrev') }}"
+                                            class="form-campo">
                                     </div>
+
                                     <div class="col-3 mt-0 pt-4">
                                         <input type="submit" value="Salvar" class="w-100 btn btn-roxo text-uppercase">
                                     </div>
@@ -78,29 +91,7 @@
                                 </td>
                             </tr>
                          @endforeach
-                            <tr>
-                                <td align="center">2</td>
-                                <td align="left">AMPOLA</td>
-                                <td align="left">AMPOLA</td>
-                                <td align="center">
-                                    <a href="unidade/2/edit" class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
-                                            class="fas fa-edit"></i>
-                                        Editar</a>
-
-                                    <a href="javascript:;"
-                                        onclick="confirm('Tem Certeza?') ? document.getElementById('apagar2').submit() : '';"
-                                        class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
-                                        <i class="fas fa-trash-alt"></i>
-                                        <form action="unidade/2" method="POST" id="apagar2" class="">
-                                            <input type="hidden" name="_method" value="DELETE"> <input type="hidden"
-                                                name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">
-                                        </form>
-
-                                        Excluir
-                                    </a>
-                                </td>
-                            </tr>
-                           
+                          
                         </tbody>
                     </table>
 
