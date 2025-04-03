@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cadastro;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TipoContaCorrenteRequest;
 use App\Models\TipoContaCorrente;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,24 @@ class TipoContaCorrenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Remove o _token e garante que os valores estão no formato correto
+        $req = $request->except(["_token"]);
+
+        // Converter strings vazias para null e garantir que números são inteiros
+        foreach ($req as $key => $value) {
+            if (is_numeric($value)) {
+                $req[$key] = (int) $value;
+            } elseif ($value === "") {
+                $req[$key] = null;
+            }
+        }
+    
+        try {
+            TipoContaCorrente::create($req);
+            return redirect()->route("tipocontacorrente.index")->with("msg_sucesso", "Registro Inserido com Sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 
     /**
