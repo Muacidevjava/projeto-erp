@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            StatusSeeder::class
+            StatusSeeder::class,
+            CategoriaSeeder::class,
         ]);
     }
 }
