@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StatusSeeder::class,
             CategoriaSeeder::class,
+            UnidadeSeeder::class
         ]);
     }
 }
