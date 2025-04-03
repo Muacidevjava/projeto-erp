@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Cadastro;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoriaRequest;
 use App\Models\Categoria;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -28,9 +30,15 @@ class CategoriaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoriaRequest $request)
     {
-        //
+        $req = $request->except(["_token"]);
+        try {
+            Categoria::create($req);
+            return redirect()->route("categoria.index")->with("msg_sucesso", "Registro Inserido com Sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 
     /**
