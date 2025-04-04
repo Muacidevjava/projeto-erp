@@ -83,6 +83,15 @@ class ContaCorrenteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $contacorrente = ContaCorrente::find($id);
+			if($contacorrente){
+				$contacorrente->delete();
+			}
+            
+            return redirect()->route("contacorrente.index")->with("msg_sucesso", "Registro Excluído com Sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 }
