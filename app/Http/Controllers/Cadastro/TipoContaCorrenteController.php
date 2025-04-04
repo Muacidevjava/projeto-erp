@@ -64,15 +64,23 @@ class TipoContaCorrenteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dados["tipocontacorrente"] = TipoContaCorrente::find($id);
+        $dados["lista"] = TipoContaCorrente::get();
+        return View('Cadastro.TipoContaCorrente.Index', $dados);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TipoContaCorrenteRequest $request, string $id)
     {
-        //
+        $req = $request->except(["_token", "_method"]);
+        try {
+            TipoContaCorrente::find($id)->update($req);
+            return redirect()->route("tipocontacorrente.index")->with("msg_sucesso", "Registro Alterado com Sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 
     /**
@@ -80,6 +88,12 @@ class TipoContaCorrenteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $tipo = TipoContaCorrente::find($id);
+            $tipo->delete();
+            return redirect()->route("tipocontacorrente.index")->with("msg_sucesso", "Registro Excluído com Sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 }

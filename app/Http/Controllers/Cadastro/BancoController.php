@@ -61,7 +61,7 @@ class BancoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BancoRequest $request, string $id)
     {
         $req = $request->except(["_token", "_method"]);
         try {
