@@ -3,17 +3,25 @@
 namespace App\Http\Controllers\Cadastro;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use stdClass;
 
 class ProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dados["lista"] = Produto::get();
+        $filtro                 = new stdClass;
+        $filtro->categoria_id   = $request->categoria_id ?? null;
+        $filtro->nome           = $request->nome ?? null;
+
+        $dados["lista"]         = Produto::filtro($filtro);
+        $dados["categorias"]    = Categoria::get();
+        $dados["filtro"]        = $filtro;
         return View("Cadastro.Produto.Index", $dados);
     }
 

@@ -22,4 +22,25 @@ class Produto extends Model
     public function categoria(){
         return $this->belongsTo(Categoria::class);
     }
+
+    public static function filtro($filtro, $paginas=0){
+        $retorno = self::query();
+
+        if($filtro->nome){
+            $retorno->where("nome", "like", '%'.$filtro->nome.'%');
+        }
+
+        if($filtro->categoria_id){
+            $retorno->where("categoria_id", $filtro->categoria_id);
+        }
+
+        if($paginas>0){
+            $retorno = $retorno->paginate($paginas);
+        }else{
+            $retorno = $retorno->get();
+        }
+
+        return $retorno;
+
+    }
 }

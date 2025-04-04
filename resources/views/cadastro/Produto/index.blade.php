@@ -26,15 +26,18 @@
                             <div class="rows center-middle">
                                 <div class="col-6">
                                     <label class="text-label d-block text-branco">Produto </label>
-                                    <input type="text" name="nome" value="" class="form-campo"
-                                        placeholder="Digite aqui..">
+                                    <input type="text" name="nome" value="{{ $filtro->nome ?? null }}"
+                                        class="form-campo" placeholder="Digite aqui..">
                                 </div>
                                 <div class="col-4">
                                     <label class="text-label d-block text-branco">Selecionar categoria </label>
                                     <select name="categoria_id" class="form-campo">
                                         <option value="">Selecione uma categoria</option>
-                                        <option value="1">Panela</option>
-                                        <option value="2">Baquelite</option>
+                                        @foreach ($categorias as $cat)
+                                            <option value="{{ $cat->id }}"
+                                                {{ ($filtro->categoria_id ?? null) == $cat->id ? 'selected' : '' }}>
+                                                {{$cat->id}} - {{ $cat->categoria }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-2 mt-0 pt-4">
@@ -77,19 +80,19 @@
 
                                 <td align="center">
 
-                                    <a href="#" class="btn d-inline-flex gap-3 btn-outline-roxo"><i
-                                            class="fas fa-edit"></i>
+                                    <a href="{{ route('produto.edit', $l->id) }}"
+                                        class="btn d-inline-flex gap-3 btn-outline-roxo"><i class="fas fa-edit"></i>
                                         Editar</a>
 
 
                                     <a href="javascript:;"
-                                        onclick="confirm('Tem Certeza?') ? document.getElementById('apagar8').submit() : '';"
+                                        onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
                                         class="btn d-inline-flex gap-3 btn-outline-vermelho ml-1"><i
                                             class="fas fa-trash-alt"></i> Excluir
-                                        <form action="produto/8" method="POST" id="apagar8">
-                                            <input type="hidden" name="_method" value="delete">
-                                            <input type="hidden" name="_token"
-                                                value="gWeyUskIcMMkVrZQpoYXZNNTExrhYDUKzdfrJfSw">
+                                        <form action="{{ route('produto.destroy', $l->id) }}" method="POST"
+                                            id="apagar{{ $l->id }}">
+                                            @method('delete')
+                                            @csrf
                                         </form>
 
                                     </a>
