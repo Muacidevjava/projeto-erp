@@ -14,142 +14,143 @@
             <div class="caixa">
 
                 <div class="px-2 py-2 w-100 d-grid">
-                    <form action="{{ route('contacorrente.store') }}" method="POST">
-                        @csrf
-                        
-                        <div class="caixafield  p-2 radius-4 border">
+                    @if (isset($contacorrente))
+                        <form action="{{ route('contacorrente.update', $contacorrente->id) }}" method="POST">
+                            @method('put')
+                        @else
+                            <form action="{{ route('contacorrente.store') }}" method="POST">
+                    @endif
+                    @csrf
+                    <div class="{{ isset($contacorrente->conta) ? 'bg-edit' : 'caixafield' }}  p-2 radius-4 border">
+                        <div class="   p-2 pt-0 radius-4">
+                            <div class="rows center-middle">
+                                <div class="col-6">
+                                    <label class="text-label d-block text-branco">Descrição </label>
+                                    <input type="text" name="descricao" required
+                                        value="{{ isset($contacorrente->descricao) ? $contacorrente->descricao : null }}"
+                                        class="form-campo">
+                                </div>
 
-                            <div class="   p-2 pt-0 radius-4">
-                                <div class="rows center-middle">
-                                    <div class="rows center-middle">
-                                        <div class="col-6">
-                                            <label class="text-label d-block text-branco">Descrição </label>
-                                            <input type="text" name="descricao" required
-                                                value="{{ isset($contacorrente->descricao) ? $contacorrente->descricao : null }}"
-                                                class="form-campo">
-                                        </div>
-
-                                    <div class="col-6">
-                                        <label class="text-label d-block text-branco">Banco </label>
-                                        <select class="form-campo" name="banco_id">
-                                            @foreach ($bancos as $banco)
-                                                <option value='{{ $banco->id }}'>
-                                                    {{ $banco->id }} - {{ $banco->banco }}</option>
-                                            @endforeach
-
-                                        </select>
-                                    </div>
-                                    <div class="col-2">
-                                        <label class="text-label d-block text-branco">Agência </label>
-                                        <input type="text" name="agencia" required
-                                            value="{{ isset($contacorrente->agencia) ? $contacorrente->agencia : null }}"
-                                            class="form-campo">
-                                    </div>
-                                    <div class="col-2">
-                                        <label class="text-label d-block text-branco">Conta </label>
-                                        <input type="text" name="conta" required
-                                            value="{{ isset($contacorrente->conta) ? $contacorrente->conta : null }}"
-                                            class="form-campo">
-                                    </div>
-                                    <div class="col-3">
-                                        <label class="text-label d-block text-branco">Tipo Conta</label>
-                                        <select class="form-campo" name="tipo_conta_corrente_id">
-                                            @foreach ($tipos as $tipo)
-                                                <option value='{{ $tipo->id }}'
-                                                    {{ ($contacorrente->tipo_conta_corrente_id ?? null) == $tipo->id ? 'selected' : '' }}>
-                                                    {{ $tipo->tipo_conta }}</option>
-                                            
-                                            @endforeach
-
-                                        </select>
-                                    </div>
-                                    <div class="col-3">
-                                        <label class="text-label d-block text-branco">Pix </label>
-                                        <input type="text" name="pix"
-                                            value="{{ isset($contacorrente->pix) ? $contacorrente->pix : null }}"
-                                            class="form-campo">
-                                    </div>
-                                    <div class="col-2 mt-0 pt-4">
-                                        <input type="submit" value="Salvar" class="btn btn-roxo text-uppercase w-100">
-                                    </div>
+                                <div class="col-6">
+                                    <label class="text-label d-block text-branco">Banco </label>
+                                    <select class="form-campo" name="banco_id">
+                                        @foreach ($bancos as $banco)
+                                            <option value='{{ $banco->id }}' required
+                                                {{ ($contacorrente->banco_id ?? null) == $banco->id ? 'selected' : '' }}>
+                                                {{ $banco->codigo }} - {{ $banco->banco }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-label d-block text-branco">Agência </label>
+                                    <input type="text" name="agencia" required
+                                        value="{{ isset($contacorrente->agencia) ? $contacorrente->agencia : null }}"
+                                        class="form-campo">
+                                </div>
+                                <div class="col-2">
+                                    <label class="text-label d-block text-branco">Conta </label>
+                                    <input type="text" name="conta" required
+                                        value="{{ isset($contacorrente->conta) ? $contacorrente->conta : null }}"
+                                        class="form-campo">
+                                </div>
+                                <div class="col-3">
+                                    <label class="text-label d-block text-branco">Tipo Conta</label>
+                                    <select class="form-campo" name="tipo_conta_corrente_id">
+                                        @foreach ($tipos as $tipo)
+                                            <option value='{{ $tipo->id }}'
+                                                {{ ($contacorrente->tipo_conta_corrente_id ?? null) == $tipo->id ? 'selected' : '' }}>
+                                                {{ $tipo->tipo_conta }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <label class="text-label d-block text-branco">Pix </label>
+                                    <input type="text" name="pix"
+                                        value="{{ isset($contacorrente->pix) ? $contacorrente->pix : null }}"
+                                        class="form-campo">
+                                </div>
+                                <div class="col-2 mt-0 pt-4">
+                                    <input type="submit" value="Salvar" class="btn btn-roxo text-uppercase w-100">
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </form>
                 </div>
 
             </div>
-        </div>
+                
+            </div>
 
-        <div class="col-12">
-            <div class="px-2">
-                <div class="tabela-responsiva pb-4">
-                    <table cellpadding="0" cellspacing="0" id="dataTable" width="100%" class="table contacorrente">
-                        <thead>
-                            <tr>
-                                <th align="center">Id</th>
-                                <th align="left">Descrição</th>
-                                <th align="left">Banco</th>
-                                <th align="left">Agência</th>
-                                <th align="left">Conta</th>
-                                <th align="left">Tipo Conta</th>
-                                <th align="left">Pix</th>
-                                <th align="center">Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($lista as $l)
+            <div class="col-12">
+                <div class="px-2">
+                    <div class="tabela-responsiva pb-4">
+                        <table cellpadding="0" cellspacing="0" id="dataTable" width="100%" class="table contacorrente">
+                            <thead>
                                 <tr>
-                                    <td align="center">{{ $l->id }}</td>
-                                    <td align="left">{{ $l->descricao }}</td>
-                                    <td align="left">{{ $l->banco->banco }}</td>
-                                    <td align="left">{{ $l->agencia }}</td>
-                                    <td align="left">{{ $l->conta }}</td>
-                                    <td align="left">{{ $l->tipoConta->tipo_conta }}</td>
-                                    <td align="left">{{ $l->pix }}</td>
-                                    <td align="center">
-                                        <a href="http://localhost/metodoagora/diversos/mjailton/borrao/borrao_zeus/sistemas/zeus_erp/borrao_zeus_erp/public/contacorrente/1/edit"
-                                            class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
-                                                class="fas fa-edit"></i>
-                                            Editar</a>
-
-                                        <a href="javascript:;"
-                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
-                                            class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
-                                            <i class="fas fa-trash-alt"></i>
-                                            <form action="{{ route('contacorrente.destroy', $l->id) }}" method="POST"
-                                                id="apagar{{ $l->id }}">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                @csrf
-                                            </form>
-
-                                            Excluir
-                                        </a>
-                                    </td>
+                                    <th align="center">Id</th>
+                                    <th align="left">Descrição</th>
+                                    <th align="left">Banco</th>
+                                    <th align="left">Agência</th>
+                                    <th align="left">Conta</th>
+                                    <th align="left">Tipo Conta</th>
+                                    <th align="left">Pix</th>
+                                    <th align="center">Ação</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($lista as $l)
+                                    <tr>
+                                        <td align="center">{{ $l->id }}</td>
+                                        <td align="left">{{ $l->descricao }}</td>
+                                        <td align="left">{{ $l->banco->banco }}</td>
+                                        <td align="left">{{ $l->agencia }}</td>
+                                        <td align="left">{{ $l->conta }}</td>
+                                        <td align="left">{{ $l->tipoConta->tipo_conta }}</td>
+                                        <td align="left">{{ $l->pix }}</td>
+                                        <td align="center">
+                                            <a href="{{ route('contacorrente.edit', $l->id) }}"
+                                                class="d-inline-flex gap-3 btn btn-outline-roxo btn-pequeno"><i
+                                                    class="fas fa-edit"></i>
+                                                Editar</a>
+
+                                            <a href="javascript:;"
+                                                onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
+                                                class="d-inline-flex gap-3 btn btn-outline-vermelho btn-pequeno">
+                                                <i class="fas fa-trash-alt"></i>
+                                                <form action="{{ route('contacorrente.destroy', $l->id) }}" method="POST"
+                                                    id="apagar{{ $l->id }}">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    @csrf
+                                                </form>
+
+                                                Excluir
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                    </div>
 
                 </div>
 
+
+                <!--
+                                                                                                                                                                                                                                                            <div class="caixa p-2">
+                                                                                                                                                                                                                                                                    <div class="msg msg-verde">
+                                                                                                                                                                                                                                                                    <p><b><i class="fas fa-check"></i> Mensagem de boas vindas</b> Parabéns seu produto foi inserido com sucesso</p>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                    <div class="msg msg-vermelho">
+                                                                                                                                                                                                                                                                    <p><b><i class="fas fa-times"></i> Mensagem de Erro</b> Houve um erro</p>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                    <div class="msg msg-amarelo">
+                                                                                                                                                                                                                                                                    <p><b><i class="fas fa-exclamation-triangle"></i> Mensagem de aviso</b> Tem um aviso pra você</p>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                            -->
             </div>
 
-
-            <!--
-                                                                                                                                                                                                                                                        <div class="caixa p-2">
-                                                                                                                                                                                                                                                                <div class="msg msg-verde">
-                                                                                                                                                                                                                                                                <p><b><i class="fas fa-check"></i> Mensagem de boas vindas</b> Parabéns seu produto foi inserido com sucesso</p>
-                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                <div class="msg msg-vermelho">
-                                                                                                                                                                                                                                                                <p><b><i class="fas fa-times"></i> Mensagem de Erro</b> Houve um erro</p>
-                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                <div class="msg msg-amarelo">
-                                                                                                                                                                                                                                                                <p><b><i class="fas fa-exclamation-triangle"></i> Mensagem de aviso</b> Tem um aviso pra você</p>
-                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                        -->
         </div>
-
-    </div>
-@endsection
+    @endsection
