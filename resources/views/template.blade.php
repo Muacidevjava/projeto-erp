@@ -23,8 +23,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script>
-        var base_url = "";
-        var _token = "3AfLh22amKzyrhUmot26qBdF4S2eM5Te5QKtPm45";
+        var base_url = "{{ asset('') }}";
+        var _token = "{{ csrf_token() }}";
     </script>
 </head>
 
@@ -68,6 +68,10 @@
 
     @if (isset($produtoJs))
         <script type="text/javascript" src="{{ asset('assets/js/js_produto.js') }}"></script>
+    @endif
+
+    @if (isset($categoriaJs))
+        <script src="{{ asset('assets/js/js_categoria.js') }}"></script>
     @endif
 
     <script>
