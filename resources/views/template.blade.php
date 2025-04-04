@@ -32,7 +32,7 @@
     <!--- cabecalho -->
     @include('cabecalho')
     <!--- fim cabecalho -->
-   
+
     <!--- menu lateral -->
     @include('menu')
     <!--- fim menu lateral -->
@@ -49,9 +49,9 @@
     <div id="mostrarSucesso"></div>
 
     <div class="conteudo">
-      <!--- home -->
-         @yield('conteudo')
-      <!--- fim home -->
+        <!--- home -->
+        @yield('conteudo')
+        <!--- fim home -->
     </div>
 
 
@@ -66,11 +66,16 @@
     <script src="{{ asset('assets/componentes/js/js_mascara.js') }}"></script>
     <script src="{{ asset('assets/componentes/js/upload.js') }}"></script>
 
+    @if (isset($produtoJs))
+        <script type="text/javascript" src="{{ asset('assets/js/js_produto.js') }}"></script>
+    @endif
+
     <script>
         $(function() {
             $("#tab").tabs();
         });
     </script>
+
 
 </body>
 
