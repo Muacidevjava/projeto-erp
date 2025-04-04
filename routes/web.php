@@ -21,5 +21,7 @@ Route::resource("/banco", BancoController::class);
 Route::resource("/tipocontacorrente", TipoContaCorrenteController::class);
 Route::resource("/contacorrente", ContaCorrenteController::class);
 Route::resource("/produto", ProdutoController::class);
+Route::post("/categoria/salvarJs", [CategoriaController::class, "salvarJs"])->name('categoria.salvarJs');
+
 
 
