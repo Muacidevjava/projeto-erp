@@ -7,6 +7,7 @@ use App\Http\Requests\CategoriaRequest;
 use App\Models\Categoria;
 use Exception;
 use Illuminate\Http\Request;
+use stdClass;
 
 class CategoriaController extends Controller
 {
@@ -86,6 +87,23 @@ class CategoriaController extends Controller
             return redirect()->route("categoria.index")->with("msg_sucesso", "Registro Excluído com Sucesso");
         } catch (\Throwable $th) {
             return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
+
+    }
+
+    public function salvarJs(Request $request){
+        $retorno = new stdClass;
+        $req = $request->except(["_token"]);
+        try {
+            Categoria::Create($req);
+            $retorno->tem_erro = false;
+            $retorno->lista = Categoria::get();
+            return response()->json($retorno);
+        } catch (\Throwable $th) {
+            $retorno->tem_erro = true;
+            $retorno->erro = $th->getMessage();
+            $retorno->lista = Categoria::get();
+            return response()->json($retorno);
         }
 
     }
