@@ -14,17 +14,20 @@
             <div class="caixa">
 
                 <div class="px-2 py-2 w-100 d-grid">
-                    <form
-                        action="http://localhost/metodoagora/diversos/mjailton/borrao/borrao_zeus/sistemas/zeus_erp/borrao_zeus_erp/public/contacorrente"
-                        method="POST">
-                        <input type="hidden" name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">
+                    <form action="{{ route('contacorrente.store') }}" method="POST">
+                        @csrf
+                        
                         <div class="caixafield  p-2 radius-4 border">
+
                             <div class="   p-2 pt-0 radius-4">
                                 <div class="rows center-middle">
-                                    <div class="col-6">
-                                        <label class="text-label d-block text-branco">Descrição </label>
-                                        <input type="text" name="descricao" required value="" class="form-campo">
-                                    </div>
+                                    <div class="rows center-middle">
+                                        <div class="col-6">
+                                            <label class="text-label d-block text-branco">Descrição </label>
+                                            <input type="text" name="descricao" required
+                                                value="{{ isset($contacorrente->descricao) ? $contacorrente->descricao : null }}"
+                                                class="form-campo">
+                                        </div>
 
                                     <div class="col-6">
                                         <label class="text-label d-block text-branco">Banco </label>
@@ -38,26 +41,33 @@
                                     </div>
                                     <div class="col-2">
                                         <label class="text-label d-block text-branco">Agência </label>
-                                        <input type="text" name="agencia" required value="" class="form-campo">
+                                        <input type="text" name="agencia" required
+                                            value="{{ isset($contacorrente->agencia) ? $contacorrente->agencia : null }}"
+                                            class="form-campo">
                                     </div>
                                     <div class="col-2">
                                         <label class="text-label d-block text-branco">Conta </label>
-                                        <input type="text" name="conta" required value="" class="form-campo">
+                                        <input type="text" name="conta" required
+                                            value="{{ isset($contacorrente->conta) ? $contacorrente->conta : null }}"
+                                            class="form-campo">
                                     </div>
                                     <div class="col-3">
                                         <label class="text-label d-block text-branco">Tipo Conta</label>
                                         <select class="form-campo" name="tipo_conta_corrente_id">
                                             @foreach ($tipos as $tipo)
-                                            <option value='{{ $tipo->id }}'>
-                                                {{ $tipo->id }} - {{ $tipo->tipo_conta }}
-                                            </option>
+                                                <option value='{{ $tipo->id }}'
+                                                    {{ ($contacorrente->tipo_conta_corrente_id ?? null) == $tipo->id ? 'selected' : '' }}>
+                                                    {{ $tipo->tipo_conta }}</option>
+                                            
                                             @endforeach
 
                                         </select>
                                     </div>
                                     <div class="col-3">
                                         <label class="text-label d-block text-branco">Pix </label>
-                                        <input type="text" name="pix" value="" class="form-campo">
+                                        <input type="text" name="pix"
+                                            value="{{ isset($contacorrente->pix) ? $contacorrente->pix : null }}"
+                                            class="form-campo">
                                     </div>
                                     <div class="col-2 mt-0 pt-4">
                                         <input type="submit" value="Salvar" class="btn btn-roxo text-uppercase w-100">
