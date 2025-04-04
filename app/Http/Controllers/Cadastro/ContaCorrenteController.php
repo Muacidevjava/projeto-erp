@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Cadastro;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banco;
 use App\Models\ContaCorrente;
+use App\Models\TipoContaCorrente;
 use Illuminate\Http\Request;
 
 class ContaCorrenteController extends Controller
@@ -13,7 +15,9 @@ class ContaCorrenteController extends Controller
      */
     public function index()
     {
-        $dados["lista"] = ContaCorrente::get();
+        $dados["lista"] = ContaCorrente::with("banco")->with("tipoConta")->get();
+        $dados["bancos"] = Banco::get();
+        $dados["tipos"] = TipoContaCorrente::get();
         return View("Cadastro.ContaCorrente.Index", $dados);
     }
 
