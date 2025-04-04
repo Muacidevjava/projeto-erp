@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ContaCorrente;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
             CategoriaSeeder::class,
             UnidadeSeeder::class,
             BancoSeeder::class,
-            TipoContaCorrenteSeeder::class
+            TipoContaCorrenteSeeder::class,
+            ContaCorrenteSeeder::class
         ]);
     }
 }
