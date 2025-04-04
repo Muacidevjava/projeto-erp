@@ -36,7 +36,7 @@
                                         @foreach ($categorias as $cat)
                                             <option value="{{ $cat->id }}"
                                                 {{ ($filtro->categoria_id ?? null) == $cat->id ? 'selected' : '' }}>
-                                                {{$cat->id}} - {{ $cat->categoria }}</option>
+                                                {{ $cat->id }} - {{ $cat->categoria }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -68,39 +68,38 @@
                         </thead>
                         <tbody>
                             @foreach ($lista as $l)
-                             @php
-                                 $imagem = $l->imagem ? 'storage/' . $l->imagem : 'assetes/img/semproduto.jpg';
-                             @endphp       
-                         
-                            <tr>
-                                <td align="center">{{ $l->id }}</td>
-                                <td align="center"><img src="{{ asset($imagem)  }}"  width="40"></td>
-                                <td align="left">{{ $l->nome }}</td>
-                                <td align="left">{{ $l->categoria->categoria ?? '--' }}</td>
-                                <td align="center">{{ $l->preco_venda }}</td>
-                                <td align="center">{{ $l->estoque_atual }}</td>
+                                @php
+                                    $imagem = $l->imagem ? 'storage/' . $l->imagem : 'assetes/img/semproduto.jpg';
+                                @endphp
 
-                                <td align="center">
+                                <tr>
+                                    <td align="center">{{ $l->id }}</td>
+                                    <td align="center"><img src="{{ asset($imagem) }}" width="40"></td>
+                                    <td align="left">{{ $l->nome }}</td>
+                                    <td align="left">{{ $l->categoria->categoria ?? '--' }}</td>
+                                    <td align="center">{{ $l->preco_venda }}</td>
+                                    <td align="center">{{ $l->estoque_atual }}</td>
 
-                                    <a href="{{ route('produto.edit', $l->id) }}"
-                                        class="btn d-inline-flex gap-3 btn-outline-roxo"><i class="fas fa-edit"></i>
-                                        Editar</a>
+                                    <td align="center">
+
+                                        <a href="{{ route('produto.edit', $l->id) }}"
+                                            class="btn d-inline-flex gap-3 btn-outline-roxo"><i class="fas fa-edit"></i>
+                                            Editar</a>
 
 
-                                    <a href="javascript:;"
-                                        onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
-                                        class="btn d-inline-flex gap-3 btn-outline-vermelho ml-1"><i
-                                            class="fas fa-trash-alt"></i> Excluir
-                                        <form action="{{ route('produto.destroy', $l->id) }}" method="POST"
-                                            id="apagar{{ $l->id }}">
-                                            @method('delete')
-                                            @csrf
-                                        </form>
+                                        <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
+                                            class="btn d-inline-flex gap-3 btn-outline-vermelho ml-1"><i
+                                                class="fas fa-trash-alt"></i> Excluir
+                                            <form action="{{ route('produto.destroy', $l->id) }}" method="POST"
+                                                id="apagar{{ $l->id }}">
+                                                @method('delete')
+                                                @csrf
+                                            </form>
 
-                                    </a>
-                                </td>
-                            </tr>
-
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
 
 

@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Cadastro;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProdutoRequest;
 use App\Models\Categoria;
 use App\Models\Produto;
 use App\Models\Unidade;
+
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -120,8 +122,30 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+  
+        public function destroy(string $id)
+        {
+            try {
+                $produto = Produto::find($id);
+        
+                if (!$produto) {
+                    return redirect()->back()->with("msg_erro", "Produto não encontrado.");
+                }
+        
+                if (!empty($produto->imagem) && Storage::exists($produto->imagem)) {
+                    Storage::delete($produto->imagem);
+                }
+        
+                $produto->delete();
+        
+                return redirect()->route("produto.index")->with("msg_sucesso", "Produto excluído com sucesso.");
+            } catch (\Throwable $th) {
+                Log::error("Erro ao excluir produto: " . $th->getMessage());
+        
+                return redirect()->back()->with("msg_erro", "Erro ao excluir produto. Tente novamente.");
+            }
+        }
+        
     }
-}
+    
+
