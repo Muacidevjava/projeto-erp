@@ -62,7 +62,7 @@ class CategoriaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CategoriaRequest $request, string $id)
     {
         $req = $request->except(["_token", "_method"]);
         try {
