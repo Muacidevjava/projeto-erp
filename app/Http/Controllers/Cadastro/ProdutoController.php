@@ -54,7 +54,7 @@ class ProdutoController extends Controller
             $req["status_id"]                = config('constantes.status.ATIVO');
             if($request->hasFile('imagem') && $request->imagem->isValid()){
                 $file = $request->file("imagem");
-                $req["imagem"] = $file->store("upload/produto");
+                $req["imagem"] = $file->store("upload/produtos");
             }
             Produto::Create($req);
             return redirect()->route("produto.index")->with("msg_sucesso", "inserido com sucesso");

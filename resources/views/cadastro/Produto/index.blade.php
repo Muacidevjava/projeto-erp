@@ -68,11 +68,13 @@
                         </thead>
                         <tbody>
                             @foreach ($lista as $l)
-                                
+                             @php
+                                 $imagem = $l->imagem ? 'storage/' . $l->imagem : 'assetes/img/semproduto.jpg';
+                             @endphp       
                          
                             <tr>
                                 <td align="center">{{ $l->id }}</td>
-                                <td align="center"><img src="produtos/PANELA_5.jpg" width="40"></td>
+                                <td align="center"><img src="{{ asset($imagem)  }}"  width="40"></td>
                                 <td align="left">{{ $l->nome }}</td>
                                 <td align="left">{{ $l->categoria->categoria ?? '--' }}</td>
                                 <td align="center">{{ $l->preco_venda }}</td>
