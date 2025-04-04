@@ -43,7 +43,18 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $req = $request->except(["_token"]);
+           
+            $req['estoque_inicial']	         = getFloat($req['estoque_inicial']);
+            $req['estoque_maximo']	         = getFloat($req['estoque_maximo']);
+            $req['estoque_minimo']	         = getFloat($req['estoque_minimo']);
+            $req['preco_custo']	             = getFloat($req['preco_custo']);
+            $req['margem_lucro']	         = getFloat($req['margem_lucro']);
+            $req['preco_venda']	             = getFloat($req['preco_venda']);
+            $req["status_id"]                = config('constantes.status.ATIVO');
+
+
+            i($req);
     }
 
     /**
