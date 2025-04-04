@@ -29,7 +29,7 @@ class TipoContaCorrenteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TipoContaCorrenteRequest $request)
     {
         // Remove o _token e garante que os valores estão no formato correto
         $req = $request->except(["_token"]);
