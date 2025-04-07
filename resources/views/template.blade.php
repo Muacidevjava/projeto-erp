@@ -74,6 +74,10 @@
         <script src="{{ asset('assets/js/js_categoria.js') }}"></script>
     @endif
 
+    @if (isset($clienteJs))
+        <script type="text/javascript" src="{{ asset('assets/js/js_cliente.js') }}"></script>
+    @endif
+
     <script>
         $(function() {
             $("#tab").tabs();

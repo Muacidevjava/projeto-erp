@@ -9,6 +9,7 @@ use App\Http\Controllers\Cadastro\StatusController;
 use App\Http\Controllers\Cadastro\TipoContaCorrenteController;
 use App\Http\Controllers\Cadastro\UnidadeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UtilController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,6 +25,8 @@ Route::resource("/contacorrente", ContaCorrenteController::class);
 Route::resource("/produto", ProdutoController::class);
 Route::post("/categoria/salvarJs", [CategoriaController::class, "salvarJs"])->name('categoria.salvarJs');
 Route::resource("/cliente", ClienteController::class);
+Route::get("/util/buscarcnpj/{cnpj}", [UtilController::class, "buscarCNPJ"])->name("buscarCNPJ");
+
 
 
 
