@@ -30,3 +30,4 @@ Route::get("/util/buscarcnpj/{cnpj}", [UtilController::class, "buscarCNPJ"])->na
 
 
 
+
