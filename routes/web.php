@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Cadastro\BancoController;
 use App\Http\Controllers\Cadastro\CategoriaController;
+use App\Http\Controllers\Cadastro\ClienteController;
 use App\Http\Controllers\Cadastro\ContaCorrenteController;
 use App\Http\Controllers\Cadastro\ProdutoController;
 use App\Http\Controllers\Cadastro\StatusController;
@@ -22,6 +23,7 @@ Route::resource("/tipocontacorrente", TipoContaCorrenteController::class);
 Route::resource("/contacorrente", ContaCorrenteController::class);
 Route::resource("/produto", ProdutoController::class);
 Route::post("/categoria/salvarJs", [CategoriaController::class, "salvarJs"])->name('categoria.salvarJs');
+Route::resource("/cliente", ClienteController::class);
 
 
 
