@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Cadastro;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use stdClass;
 
 class ClienteController extends Controller
@@ -36,7 +38,7 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         $req = $request->except(["_token"]);
         try {
@@ -62,7 +64,9 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dados["cliente"]   = Cliente::find($id);
+        $dados["clienteJs"] = true;
+        return View("Cadastro.Cliente.Edit", $dados);
     }
 
     /**
