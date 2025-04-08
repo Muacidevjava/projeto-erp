@@ -4,6 +4,7 @@ use App\Http\Controllers\Cadastro\BancoController;
 use App\Http\Controllers\Cadastro\CategoriaController;
 use App\Http\Controllers\Cadastro\ClienteController;
 use App\Http\Controllers\Cadastro\ContaCorrenteController;
+use App\Http\Controllers\Cadastro\FornecedorController;
 use App\Http\Controllers\Cadastro\ProdutoController;
 use App\Http\Controllers\Cadastro\StatusController;
 use App\Http\Controllers\Cadastro\TipoContaCorrenteController;
@@ -26,6 +27,7 @@ Route::resource("/produto", ProdutoController::class);
 Route::post("/categoria/salvarJs", [CategoriaController::class, "salvarJs"])->name('categoria.salvarJs');
 Route::resource("/cliente", ClienteController::class);
 Route::get("/util/buscarcnpj/{cnpj}", [UtilController::class, "buscarCNPJ"])->name("buscarCNPJ");
+Route::resource("/fornecedor", FornecedorController::class);
 
 
 
