@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             ContaCorrenteSeeder::class,
             ProdutoSeeder::class,
             ClienteSeeder::class,
+            FornecedorSeeder::class,
         ]);
     }
 }
