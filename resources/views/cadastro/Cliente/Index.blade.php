@@ -61,7 +61,7 @@
                                 <th align="left">Nome</th>
                                 <th align="left">CPF/CNPJS</th>
                                 <th align="center">Email</th>
-                                <th align="center">Celular</th>
+                                <th align="center">Telefone</th>
                                 <th align="center">Ação</th>
                             </tr>
                         </thead>

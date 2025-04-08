@@ -74,6 +74,15 @@ class ClienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $req = $request->except(["_token"]);
+        try {
+            $cliente = Cliente::find($id);
+            $cliente->update($req);
+            return redirect()->route("cliente.index")->with("msg_sucesso", "inserido com sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+
+        }
         //
     }
 
@@ -82,6 +91,12 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $cliente = Cliente::find($id);
+            $cliente->delete();
+            return redirect()->route("cliente.index")->with("msg_sucesso", "excluido com sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 }
