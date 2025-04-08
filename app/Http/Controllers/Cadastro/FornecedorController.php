@@ -45,7 +45,6 @@ class FornecedorController extends Controller
             return redirect()->route("fornecedor.index")->with("msg_sucesso", "inserido com sucesso");
         } catch (\Throwable $th) {
             return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
-
         }
     }
     /**
