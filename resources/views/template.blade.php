@@ -38,15 +38,7 @@
     <!--- fim menu lateral -->
 
 
-    <script>
-        $("#msg_lista_um_erro");
-    </script>
-    <script>
-        $("#msg_lista_varios_erros");
-    </script>
-    <div id="mostrarErros"></div>
-    <div id="mostrarUmErro"></div>
-    <div id="mostrarSucesso"></div>
+  
 
     <div class="conteudo">
         <!--- home -->
