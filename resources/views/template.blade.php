@@ -37,13 +37,24 @@
     @include('menu')
     <!--- fim menu lateral -->
 
-
+    <script>
+        $("#msg_lista_um_erro");
+    </script>
+    <script>
+        $("#msg_lista_varios_erros");
+    </script>
+    <div id="mostrarErros"></div>
+    <div id="mostrarUmErro"></div>
+    <div id="mostrarSucesso"></div>
   
 
     <div class="conteudo">
         <!--- home -->
         @yield('conteudo')
         <!--- fim home -->
+        <div class="window load fechar_giragira" id="giragira">
+            <span class="text-load">Carregando...</span>
+        </div>
     </div>
 
 
@@ -68,6 +79,10 @@
 
     @if (isset($clienteJs))
         <script type="text/javascript" src="{{ asset('assets/js/js_cliente.js') }}"></script>
+    @endif
+
+    @if (isset($fornecedorJs))
+        <script type="text/javascript" src="{{ asset('assets/js/js_fornecedor.js') }}"></script>
     @endif
 
     <script>
