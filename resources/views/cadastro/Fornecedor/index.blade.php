@@ -26,17 +26,17 @@
                             <div class="rows center-middle">
                                 <div class="col-3">
                                     <label class="text-label d-block text-branco">Fornecedor </label>
-                                    <input type="text" name="nome" value="" class="form-campo"
+                                    <input type="text" name="nome" value="{{ $filtro->nome ?? null }}" class="form-campo"
                                         placeholder="Digite aqui..">
                                 </div>
                                 <div class="col-3">
                                     <label class="text-label d-block text-branco">Email </label>
-                                    <input type="text" name="email" value="" class="form-campo"
+                                    <input type="text" name="email" value="{{ $filtro->email ?? null }}" class="form-campo"
                                         placeholder="Digite aqui..">
                                 </div>
                                 <div class="col-3">
                                     <label class="text-label d-block text-branco">CPF </label>
-                                    <input type="text" name="cpf" value="" class="form-campo"
+                                    <input type="text" name="cnpj" value="{{ $filtro->cnpj ?? null }}" class="form-campo"
                                         placeholder="Digite aqui..">
                                 </div>
 
@@ -66,30 +66,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($lista as $l)
                             <tr>
-                                <td align="center">1</td>
-                                <td align="left">Fornecedor teste</td>
-                                <td align="left">09689284000140</td>
-                                <td align="center">fornecedor@gmail.com</td>
-                                <td align="center"></td>
-                                <td align="center">
-                                    <a href="fornecedor/1/edit" class="btn d-inline-block btn-outline-roxo"><i
-                                            class="fas fa-edit"></i>
-                                        Editar</a>
+                                <td align="center">{{ $l->id }}</td>
+                                    <td align="left">{{ $l->razao_social }}</td>
+                                    <td align="left">{{ $l->cnpj }}</td>
+                                    <td align="center">{{ $l->email }}</td>
+                                    <td align="center">{{ $l->telefone}}</td>
+                                    <td align="center">
+                                        <a href="{{ route('cliente.edit', $l->id) }}"
+                                            class="btn d-inline-block btn-outline-roxo"><i class="fas fa-edit"></i>
+                                            Editar</a>
 
 
-                                    <a href="javascript:;"
-                                        onclick="confirm('Tem Certeza?') ? document.getElementById('apagar1').submit() : '';"
-                                        class="btn d-inline-block btn-outline-vermelho ml-1"><i
-                                            class="fas fa-trash-alt"></i> Excluir
-                                        <form action="fornecedor/1" method="POST" id="apagar1">
-                                            <input type="hidden" name="_method" value="delete"> <input type="hidden"
-                                                name="_token" value="tvtnp2mVXd8pddzy2IANE1RBBXPKhRKrJNRg7Ttx">
+                                           <a href="javascript:;"
+                                            onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
+                                            class="btn d-inline-block btn-outline-vermelho ml-1"><i
+                                                class="fas fa-trash-alt"></i> Excluir
+                                            <form action="{{ route('cliente.destroy', $l->id) }}" method="POST"
+                                                id="apagar{{ $l->id }}">
+                                                @method('delete')
+                                                @csrf
                                         </form>
 
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
