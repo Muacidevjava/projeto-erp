@@ -19,11 +19,11 @@ public static function filtro($filtro, $paginas=0){
     $retorno = self::query();
 
     if($filtro->nome){
-        $retorno->where("nome_razao_social", "like", '%'.$filtro->nome.'%');
+        $retorno->where("razao_social", "like", '%'.$filtro->nome.'%');
     }
 
     if($filtro->cpf){
-        $retorno->where("cpf_cnpj", "like", '%'.$filtro->cpf.'%');
+        $retorno->where("cnpj", "like", '%'.$filtro->cnpj.'%');
     }
 
     if($filtro->email){

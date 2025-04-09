@@ -13,10 +13,19 @@ class FornecedorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request)
     {
-        $dados["fornecedorJs"] = true;
-        $dados["lista"] = Fornecedor::all();
+        // $dados["fornecedorJs"] = true;
+        // $dados["lista"] = Fornecedor::all();
+        // return View("Cadastro.Fornecedor.Index", $dados);
+
+        $filtro                = new stdClass;
+        $filtro->nome          = $request->nome ?? null;
+        $filtro->cpf           = $request->cpf ?? null;
+        $filtro->email         = $request->email ?? null;
+
+        $dados["lista"] = Fornecedor::filtro($filtro);
+        $dados["filtro"] = $filtro;
         return View("Cadastro.Fornecedor.Index", $dados);
     }
 
@@ -61,7 +70,9 @@ class FornecedorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dados["fornecedorJs"] = true;
+        $dados["fornecedor"] = Fornecedor::find($id);
+        return View("Cadastro.Fornecedor.Edit", $dados);
     }
 
     /**
