@@ -64,9 +64,16 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        $dados["cliente"]   = Cliente::find($id);
-        $dados["clienteJs"] = true;
-        return View("Cadastro.Cliente.Edit", $dados);
+        $cliente = Cliente::find($id);
+
+    if (!$cliente) {
+        return redirect()->route('cliente.index')->with('error', 'Cliente não encontrado.');
+    }
+
+    return view('Cadastro.Cliente.Edit', [
+        'cliente'   => $cliente,
+        'clienteJs' => true,
+    ]);
     }
 
     /**
