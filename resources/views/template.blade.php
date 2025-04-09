@@ -57,9 +57,9 @@
         </div>
     </div>
 
-
-    <script src="{{ asset('assets/js/datatables/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/js/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/js/dataTables.responsive.min.js') }}"></script>
+   
 
     <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
 
