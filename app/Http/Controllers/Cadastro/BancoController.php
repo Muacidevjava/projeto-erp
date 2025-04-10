@@ -6,15 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BancoRequest;
 use App\Models\Banco;
 use Illuminate\Http\Request;
+use stdClass;
 
 class BancoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dados["lista"] = Banco::get();
+        $filtro = new stdClass;
+        $filtro->codigo = $request->codigo ?? null;
+        $filtro->banco = $request->banco ?? null;
+
+        $dados["lista"] = Banco::filtro($filtro);
+        $dados["filtro"] = $filtro;
         return View("Cadastro.Banco.Index", $dados);
     }
 
