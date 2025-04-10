@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="col-4 mb-3">
                                         <label class="text-label">Celular:</label>
-                                        <input type="text" name="celular" value="<?php echo $vendedor->celular ?? old('celular')?> "class="form-campo mascara-celular">
+                                        <input type="text" name="celular" value="<?php echo $vendedor->celular ?? old('celular')?>" class="form-campo mascara-celular">
                                     </div>
 
                                     <div class="col-8 mb-3">
