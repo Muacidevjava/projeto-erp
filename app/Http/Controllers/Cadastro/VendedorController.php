@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cadastro;
 use App\Http\Controllers\Controller;
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
+use stdClass;
 
 class VendedorController extends Controller
 {
@@ -13,7 +14,13 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        $dados["lista"] = Vendedor::get();
+        $filtro                = new stdClass;
+        $filtro->nome          = $request->nome ?? null;
+        $filtro->cpf           = $request->cpf ?? null;
+        $filtro->email         = $request->email ?? null;
+
+        $dados["lista"] = Vendedor::filtro($filtro);
+        $dados["filtro"] = $filtro;
         return View("Cadastro.Vendedor.Index", $dados);
     }
 
