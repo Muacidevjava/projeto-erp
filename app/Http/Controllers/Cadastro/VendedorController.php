@@ -29,7 +29,8 @@ class VendedorController extends Controller
      */
     public function create()
     {
-        //
+        $dados["vendedorJs"] = true;
+        return View("Cadastro.Vendedor.Create", $dados);
     }
 
     /**
@@ -37,7 +38,15 @@ class VendedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $req = $request->except(["_token"]);
+        try {
+            $req["status_id"]                = config('constantes.status.ATIVO');
+            Vendedor::Create($req);
+            return redirect()->route("vendedor.index")->with("msg_sucesso", "inserido com sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+
+        }
     }
 
     /**

@@ -21,7 +21,7 @@
                         <a href="" class="btn btn-laranja filtro mx-1" title="Filtrar"><i
                                 class="fas fa-filter"></i></a>
                     </div>
-                    <form>
+                  <form>
                         <div class="mostraFiltro bg-padrao mt-2 p-2 radius-4 border">
                             <div class="rows center-middle">
                                 <div class="col-3">
