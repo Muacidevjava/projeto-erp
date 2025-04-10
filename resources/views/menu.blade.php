@@ -67,8 +67,8 @@
                     <li class="subcat">
                         <a href="">Vendedor</a>
                         <ul>
-                            <li><a href="vendedor">Lista</a></li>
-                            <li><a href="vendedor/create">Cadastro de Vendedor</a></li>
+                            <li><a href="{{ route('vendedor.index') }}">Lista</a></li>
+                            <li><a href="{{ route('vendedor.create') }}">Cadastro de Vendedor</a></li>
                         </ul>
                     </li>
 

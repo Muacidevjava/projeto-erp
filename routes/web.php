@@ -9,6 +9,7 @@ use App\Http\Controllers\Cadastro\ProdutoController;
 use App\Http\Controllers\Cadastro\StatusController;
 use App\Http\Controllers\Cadastro\TipoContaCorrenteController;
 use App\Http\Controllers\Cadastro\UnidadeController;
+use App\Http\Controllers\Cadastro\VendedorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UtilController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,7 @@ Route::post("/categoria/salvarJs", [CategoriaController::class, "salvarJs"])->na
 Route::resource("/cliente", ClienteController::class);
 Route::get("/util/buscarcnpj/{cnpj}", [UtilController::class, "buscarCNPJ"])->name("buscarCNPJ");
 Route::resource("/fornecedor", FornecedorController::class);
-
+Route::resource("/vendedor", VendedorController::class);
 
 
 
