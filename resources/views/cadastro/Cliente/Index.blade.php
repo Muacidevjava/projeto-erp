@@ -74,7 +74,7 @@
                                     <td align="center">{{ $l->email }}</td>
                                     <td align="center">{{ $l->celular }}</td>
                                     <td align="center">
-                                        <a href="{{ route('cliente.edit', $l->id) }}"
+                                        <a href="{{ route('cliente.create', $l->id) }}"
                                             class="btn d-inline-block btn-outline-roxo"><i class="fas fa-edit"></i>
                                             Editar</a>
 

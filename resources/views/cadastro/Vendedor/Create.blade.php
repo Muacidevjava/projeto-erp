@@ -15,23 +15,13 @@
         <div class="col-12">
 
 
-           
-                @if ($errors->any())
-                    <div class="alert alert-danger mb-3">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $erro)
-                                <li>{{ $erro }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <form action="{{ isset($vendedor) ? route('vendedor.update', $vendedor->id) : route('vendedor.store') }}"
-                    method="POST">
-                    @csrf
-                    @if (isset($vendedor))
-                        @method('PUT')
-                    @endif
+               @if(@isset($vendedor))
+               <form action="{{ route('vendedor.update', $vendedor->id) }}" method="POST">
+                @method('put')
+                @else
+                <form action="{{ route('vendedor.store') }}" method="POST">  
+               @endif
+               @csrf
                     <div id="tab-1">
                         <div class="p-2">
                             <span class="d-block mt-0 mb-4 border-bottom text-uppercase pb-1">Informações básicas</span>
@@ -40,7 +30,7 @@
                                     <label class="text-label" id="lblRazaoSocial">Nome<span
                                             class="text-vermelho">*</span></label>
                                     <input type="text" name="nome" id="nome" required
-                                        value="{{ $vendedor->nome ?? old('nome') }}" class="form-campo">
+                                        value="<?php echo $vendedor->nome ?? old('nome') ?>" class="form-campo">
                                     @error('nome')
                                         <small class="text_dang">{{ $message }}</small>
                                     @enderror
@@ -48,23 +38,27 @@
 
                                     <div class="col-3 mb-3">
                                         <label class="text-label id="lblCnpj">CPF</label>
-                                        <input type="text" name="cpf" id="cpf" value="" class="form-campo">
+                                        <input type="text" name="cpf" id="cpf" value="<?php echo $vendedor->cpf ?? old('cpf') ?>" class="form-campo">
                                     </div>
 
 
                                     <div class="col-3 mb-3">
                                         <label class="text-label" id="lblInscEstadual">RG</label>
-                                        <input type="text" name="rg" maxlength="14" id="rg" value=""
-                                            class="form-campo">
+                                        <input type="text" name="rg" maxlength="14" id="rg" value="<?php echo $vendedor->rg ?? old('rg')?>" class="form-campo">
+                                           
                                     </div>
                                     <div class="col-4 mb-3">
                                         <label class="text-label">Celular:</label>
-                                        <input type="text" name="celular" value="" class="form-campo">
+                                        <input type="text" name="celular" value="<?php echo $vendedor->celular ?? old('celular')?> "class="form-campo mascara-celular">
                                     </div>
 
                                     <div class="col-8 mb-3">
                                         <label class="text-label">Email</label>
-                                        <input type="text" name="email" value="" class="form-campo">
+                                        <input type="text" name="email" value="<?php echo $vendedor->email ?? old('email') ?>" class="form-campo">
+                                    </div>
+                                    <div class="col-3 mb-3">
+                                        <label class="text-label">Comissão</label>
+                                        <input type="text" name="comissao" value="<?php echo $vendedor->comissao ?? old('comissao')?>" class="form-campo">
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +71,7 @@
                                     <div class="col-2 mb-3">
                                         <label class="text-label">CEP</label>
                                         <div class="input-grupo">
-                                            <input type="text" value="" name="cep" id="cep"
+                                            <input type="text" value="<?php echo $vendedor->cep ?? old('celpe') ?>" name="cep" id="cep"
                                                 class="form-campo busca_cep mascara-cep">
 
                                         </div>
@@ -85,7 +79,7 @@
                                     <div class="col-6 mb-3">
                                         <label class="text-label">Logradouro</label>
                                         <input type="text" name="logradouro" id="logradouro"
-                                            value="{{ $vendedor->logradouro ?? old('logradouro') }}" class="form-campo rua">
+                                            value="<?php echo $vendedor->logradouro ?? old('logradouro') ?>" class="form-campo rua">
                                         @error('logradouro')
                                             <small class="text-danger d-block">{{ $message }}</small>
                                         @enderror
@@ -94,7 +88,7 @@
                                     <div class="col-2 mb-4">
                                         <label class="text-label">Numero</label>
                                         <input type="text" name="numero" id="numero"
-                                            value="{{ old('numero', $vendedor->numero ?? '') }}" class="form-campo ">
+                                            value="<?php echo $vendedor->numero ?? old('numero')?>" class="form-campo ">
                                         @error('numero')
                                             <small class="text-danger d-block">{{ $message }}</small>
                                         @enderror
@@ -103,7 +97,7 @@
                                     <div class="col-2 mb-2">
                                         <label class="text-label">UF</label>
                                         <input type="text" name="uf" id="uf"
-                                            value="{{ $vendedor->uf ?? old('uf') }}" class="form-campo estado">
+                                            value="<?php echo $vendedor->uf ?? old('uf')?>" class="form-campo estado">
                                         @error('uf')
                                             <small class="text-danger d-block">{{ $message }}</small>
                                         @enderror
@@ -111,13 +105,13 @@
                                     
                                     <div class="col-3 mb-3">
                                         <label class="text-label">Complemento</label>
-                                        <input type="text" name="complemento" id="complemento" value=""
+                                        <input type="text" name="complemento" id="complemento" value="<?php echo $vendedor->complemento ?? old('complemento')?>"
                                             class="form-campo">
                                     </div>
                                     <div class="col-3 mb-3">
                                         <label class="text-label">Bairro</label>
                                         <input type="text" name="bairro" id="bairro"
-                                            value="{{ $vendedor->bairro ?? old('bairro') }}" class="form-campo bairro">
+                                            value="<?php echo $bairro->bairro ?? old('bairro')?>" class="form-campo bairro">
                                         @error('bairro')
                                             <small class="text-danger d-block">{{ $message }}</small>
                                         @enderror
@@ -126,12 +120,13 @@
 
                                     <div class="col-4 mb-2">
                                         <label class="text-label">Cidade</label>
-                                        <input type="text" name="cidade" id="cidade" value=""
+                                        <input type="text" name="cidade" id="cidade" value=" <?php echo $vendedor->cidade ?? old('cidade')?>"
                                             class="form-campo cidade">
+                                           
                                     </div>
                                     <div class="col-2 mb-2">
                                         <label class="text-label">IBGE</label>
-                                        <input type="text" name="ibge" id="ibge" value=""
+                                        <input type="text" name="ibge" id="ibge" value="<?php echo $vendedor->ibge ?? old('ibge') ?>"
                                             class="form-campo ibge">
                                     </div>
                                 </div>
