@@ -1,6 +1,35 @@
 @extends('template')
 @section('conteudo')
     <div class="rows">
+        @if (session('msg_sucesso'))
+        <div id="toast-sucesso" style="position: fixed; top: 20px; right: 20px; z-index: 9999; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 12px 20px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: flex; align-items: center;">
+            <span style="margin-right: 10px;">✔️</span>
+            <span>{{ session('msg_sucesso') }}</span>
+            <button onclick="document.getElementById('toast-sucesso').remove()" style="background: none; border: none; font-weight: bold; margin-left: 15px; color: #155724; cursor: pointer;">×</button>
+        </div>
+
+        <script>
+            setTimeout(() => {
+                const toast = document.getElementById('toast-sucesso');
+                if (toast) toast.remove();
+            }, 3000);
+        </script>
+    @endif
+    @if (session('msg_erro'))
+<div id="toast-erro" style="position: fixed; top: 70px; right: 20px; z-index: 9999; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 12px 20px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: flex; align-items: center;">
+    <span style="margin-right: 10px;">❌</span>
+    <span>{{ session('msg_erro') }}</span>
+    <button onclick="document.getElementById('toast-erro').remove()" style="background: none; border: none; font-weight: bold; margin-left: 15px; color: #721c24; cursor: pointer;">×</button>
+</div>
+
+
+<script>
+    setTimeout(() => {
+        const toast = document.getElementById('toast-erro');
+        if (toast) toast.remove();
+    }, 5000);
+</script>
+@endif
         <div class="col-12">
             <span class=" bg-title text-light text-uppercase h5 mb-0 text-branco">
                 <svg class="icon cadastro" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
