@@ -21,7 +21,8 @@
         <span>{{ session('msg_erro') }}</span>
         <button onclick="document.getElementById('toast-erro').remove()" style="background: none; border: none; font-weight: bold; margin-left: 15px; color: #721c24; cursor: pointer;">×</button>
     </div>
-
+ 
+    
     <script>
         setTimeout(() => {
             const toast = document.getElementById('toast-erro');
