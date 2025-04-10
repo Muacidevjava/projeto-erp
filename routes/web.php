@@ -34,6 +34,7 @@ Route::get("/util/buscarcnpj/{cnpj}", [UtilController::class, "buscarCNPJ"])->na
 Route::resource("/fornecedor", FornecedorController::class);
 Route::resource("/vendedor", VendedorController::class);
 Route::resource('transportadora', TransportadoraController::class);
+Route::post("/entrada/salvarJs", [EntradaController::class,"salvarJs"])->name("entrada.salvarJs");
 Route::get("/entrada", [EntradaController::class,"index"])->name("entrada.index");
 
 
