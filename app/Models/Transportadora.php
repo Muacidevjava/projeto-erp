@@ -11,4 +11,28 @@ class Transportadora extends Model
         'complemento', 'numero', 'bairro', 'telefone',
         'celular', 'email', 'uf', 'cep', 'ibge', 'cidade'
     ];
+    public static function filtro($filtro, $paginas=0){
+        $retorno = self::query();
+    
+        if($filtro->nome){
+            $retorno->where("razao_social", "like", '%'.$filtro->nome.'%');
+        }
+    
+        if($filtro->cpf){
+            $retorno->where("cnpj", "like", '%'.$filtro->cnpj.'%');
+        }
+    
+        if($filtro->email){
+            $retorno->where("email", "like", '%'.$filtro->email.'%');
+        }
+    
+        if($paginas>0){
+            $retorno = $retorno->paginate($paginas);
+        }else{
+            $retorno = $retorno->get();
+        }
+    
+        return $retorno;
+    
+    }
 }
