@@ -20,7 +20,7 @@ return new class extends Migration
                 $table->string('nome_fantasia', 80)->nullable();
                 $table->string('cnpj', 19);
                 $table->string('logradouro', 80);
-                $table->string('numero', 10);
+                $table->string('numero', 10)->nullable()->change();
                 $table->string('bairro', 50);
                 $table->string('uf', 2);
     
