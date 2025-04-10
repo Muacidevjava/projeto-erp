@@ -50,7 +50,7 @@ class FornecedorController extends Controller
             Fornecedor::create($req);
             return redirect()->route("fornecedor.index")->with("msg_sucesso", "inserido com sucesso");
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            return redirect()->route("fornecedor.index")->with("msg_erro", "erro ao inserir");
         }
     }
     /**
@@ -84,7 +84,7 @@ class FornecedorController extends Controller
     
             return redirect()->route("fornecedor.index")->with("msg_sucesso", "atualizado com sucesso");
         } catch (\Throwable $th) {
-            // Mostra a exceção completa
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
         }
     }
 
