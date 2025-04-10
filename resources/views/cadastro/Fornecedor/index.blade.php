@@ -72,9 +72,9 @@
                                     <td align="left">{{ $l->razao_social }}</td>
                                     <td align="left">{{ $l->cnpj }}</td>
                                     <td align="center">{{ $l->email }}</td>
-                                    <td align="center">{{ $l->telefone}}</td>
+                                    <td align="center">{{ $l->celular}}</td>
                                     <td align="center">
-                                        <a href="{{ route('cliente.edit', $l->id) }}"
+                                        <a href="{{ route('fornecedor.edit', $l->id) }}"
                                             class="btn d-inline-block btn-outline-roxo"><i class="fas fa-edit"></i>
                                             Editar</a>
 
@@ -83,7 +83,7 @@
                                             onclick="confirm('Tem Certeza?') ? document.getElementById('apagar{{ $l->id }}').submit() : '';"
                                             class="btn d-inline-block btn-outline-vermelho ml-1"><i
                                                 class="fas fa-trash-alt"></i> Excluir
-                                            <form action="{{ route('cliente.destroy', $l->id) }}" method="POST"
+                                            <form action="{{ route('fornecedor.destroy', $l->id) }}" method="POST"
                                                 id="apagar{{ $l->id }}">
                                                 @method('delete')
                                                 @csrf

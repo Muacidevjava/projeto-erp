@@ -13,7 +13,7 @@ class FornecedorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index( Request $request)
+    public function index(Request $request)
     {
         // $dados["fornecedorJs"] = true;
         // $dados["lista"] = Fornecedor::all();
@@ -43,15 +43,11 @@ class FornecedorController extends Controller
      */
     public function store(FornecedorRequest $request)
     {
-        
+
         $req = $request->except(["_token"]);
         try {
             $req["status_id"]                = config('constantes.status.ATIVO');
-
-         
-
             Fornecedor::create($req);
-
             return redirect()->route("fornecedor.index")->with("msg_sucesso", "inserido com sucesso");
         } catch (\Throwable $th) {
             dd($th->getMessage());
@@ -70,9 +66,9 @@ class FornecedorController extends Controller
      */
     public function edit(string $id)
     {
+        $dados["fornecedor"]   = Fornecedor::find($id);
         $dados["fornecedorJs"] = true;
-        $dados["fornecedor"] = Fornecedor::find($id);
-        return View("Cadastro.Fornecedor.Edit", $dados);
+        return View("Cadastro.Fornecedor.Create", $dados);
     }
 
     /**
@@ -80,7 +76,16 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        try {
+            $req = $request->except(['_token', '_method']);
+            $fornecedor = Fornecedor::findOrFail($id);
+            $fornecedor->update($req);
+    
+            return redirect()->route("fornecedor.index")->with("msg_sucesso", "atualizado com sucesso");
+        } catch (\Throwable $th) {
+            // Mostra a exceção completa
+        }
     }
 
     /**
@@ -88,6 +93,12 @@ class FornecedorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $fornecedor = Fornecedor::find($id);
+            $fornecedor->delete();
+            return redirect()->route("fornecedor.index")->with("msg_sucesso", "excluido com sucesso");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("msg_erro", "Erro: " . $th->getMessage());
+        }
     }
 }
