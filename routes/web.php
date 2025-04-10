@@ -11,6 +11,7 @@ use App\Http\Controllers\Cadastro\TipoContaCorrenteController;
 use App\Http\Controllers\Cadastro\TransportadoraController;
 use App\Http\Controllers\Cadastro\UnidadeController;
 use App\Http\Controllers\Cadastro\VendedorController;
+use App\Http\Controllers\Estoque\EntradaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UtilController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::get("/util/buscarcnpj/{cnpj}", [UtilController::class, "buscarCNPJ"])->na
 Route::resource("/fornecedor", FornecedorController::class);
 Route::resource("/vendedor", VendedorController::class);
 Route::resource('transportadora', TransportadoraController::class);
+Route::get("/entrada", [EntradaController::class,"index"])->name("entrada.index");
 
 
 
