@@ -15,7 +15,15 @@
         <div class="col-12">
 
             <div id="tab">
-
+                @if ($errors->any())
+                <div class="alert alert-danger mb-3">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $erro)
+                            <li>{{ $erro }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
                 <form
                     action="{{ isset($fornecedor) ? route('fornecedor.update', $fornecedor->id) : route('fornecedor.store') }}"
                     method="POST">
@@ -50,10 +58,12 @@
                             <span class="d-block mt-0 mb-4 border-bottom text-uppercase pb-1">Informações básicas</span>
                             <div class="rows">
                                 <div class="col-6 mb-3">
-                                    <label class="text-label" id="lblRazaoSocial">Razão Social<span
-                                            class="text-vermelho">*</span></label>
+                                    <label class="text-label" id="lblRazaoSocial">Razão Social<span class="text-vermelho">*</span></label>
                                     <input type="text" name="razao_social" id="razao_social" required
                                         value="{{ $fornecedor->razao_social ?? old('razao_social') }}" class="form-campo">
+                                    @error('razao_social')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-6 mb-3" id="divFantasia">
                                     <label class="text-label">Nome Fantasia</label>
@@ -123,18 +133,27 @@
                                 <div class="col-6 mb-3">
                                     <label class="text-label">Logradouro</label>
                                     <input type="text" name="logradouro" id="logradouro"
-                                        value="{{ $fornecedor->logradouro ?? old('logradouro') }}"
-                                        class="form-campo rua">
+                                        value="{{ $fornecedor->logradouro ?? old('logradouro') }}" class="form-campo rua">
+                                    @error('logradouro')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
+                                
                                 <div class="col-2 mb-4">
                                     <label class="text-label">Numero</label>
                                     <input type="text" name="numero" id="numero"
                                         value="{{ old('numero', $fornecedor->numero ?? '') }}" class="form-campo ">
+                                    @error('numero')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-2 mb-2">
                                     <label class="text-label">UF</label>
                                     <input type="text" name="uf" id="uf"
                                         value="{{ $fornecedor->uf ?? old('uf') }}" class="form-campo estado">
+                                    @error('uf')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-3 mb-3">
                                     <label class="text-label">Complemento</label>
@@ -144,7 +163,10 @@
                                 <div class="col-3 mb-3">
                                     <label class="text-label">Bairro</label>
                                     <input type="text" name="bairro" id="bairro"
-                                        value="{{ $fornecedor->bairro ?? old('bairro') }}" class="form-campo bairro ">
+                                        value="{{ $fornecedor->bairro ?? old('bairro') }}" class="form-campo bairro">
+                                    @error('bairro')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="col-4 mb-2">
