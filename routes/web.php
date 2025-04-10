@@ -26,6 +26,7 @@ Route::resource("/unidade", UnidadeController::class);
 Route::resource("/banco", BancoController::class);
 Route::resource("/tipocontacorrente", TipoContaCorrenteController::class);
 Route::resource("/contacorrente", ContaCorrenteController::class);
+Route::get("/produto/pesquisa",[ProdutoController::class,"pesquisa"])->name('produto.pesquisa');
 Route::resource("/produto", ProdutoController::class);
 Route::post("/categoria/salvarJs", [CategoriaController::class, "salvarJs"])->name('categoria.salvarJs');
 Route::resource("/cliente", ClienteController::class);
@@ -34,6 +35,7 @@ Route::resource("/fornecedor", FornecedorController::class);
 Route::resource("/vendedor", VendedorController::class);
 Route::resource('transportadora', TransportadoraController::class);
 Route::get("/entrada", [EntradaController::class,"index"])->name("entrada.index");
+
 
 
 

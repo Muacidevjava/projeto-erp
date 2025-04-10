@@ -89,6 +89,10 @@
         <script type="text/javascript" src="{{ asset('assets/js/js_transportadora.js') }}"></script>
     @endif
 
+    @if (isset($entradaJs))
+        <script type="text/javascript" src="{{ asset('assets/js/js_entrada.js') }}"></script>
+  @endif
+
     <script>
         $(function() {
             $("#tab").tabs();

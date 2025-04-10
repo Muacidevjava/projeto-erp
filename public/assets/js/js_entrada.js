@@ -1,4 +1,3 @@
-
 $(function(){
     $("#produtoentrada").on("keyup", function(){
         var q = $(this).val();

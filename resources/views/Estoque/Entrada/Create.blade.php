@@ -54,6 +54,7 @@
                     <span class="d-inline-block"><i class="fas fa-arrow-right"></i> Lista de Entradas </span>
                 </div>
                 <div class="col-12 mb-3">
+
                     <div class="border p-3 radius-4 pb-4 caixafield">
                         <div class="rows center-middle">
                             <div class="col-6 position-relative">
@@ -77,6 +78,7 @@
                             </div>
 
                             <div class="col-2 mt-4">
+                                
                                 <input type="hidden" id="produto_id" name="produto_id">
                                 <a href="javascript:;" onclick="inserirEntradaEstoque()" class="btn btn-roxo width-100">
                                     Inserir</a>
@@ -100,7 +102,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="lista_solicitacao">
-                                   
+
                                     @foreach ($lista as $l)
                                         <tr>
                                             <td align="center">{{ $l->id }}</td>

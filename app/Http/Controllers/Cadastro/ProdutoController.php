@@ -122,6 +122,12 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function pesquisa(){
+        $q = $_GET["q"];
+        $produtos = Produto::where("nome", "like","%$q%")->get();
+
+        return response()->json($produtos);
+    }
   
         public function destroy(string $id)
         {
